@@ -37,7 +37,7 @@ class HomePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Icon(
-                        Icons.lock,
+                        Icons.lock_outline,
                         size: 125.0,
                         color: Colors.grey,
                       ),
@@ -81,7 +81,9 @@ class HomePage extends StatelessWidget {
                           padding: const EdgeInsets.all(8.0),
                           child: Container(width: 75.0,height: 75.0,),
                         ),
+
                         buildButton(num: 0),
+
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Container(
