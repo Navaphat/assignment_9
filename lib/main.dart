@@ -89,8 +89,9 @@ class HomePage extends StatelessWidget {
                             height: 75.0,
                             child: IconButton(
                               onPressed: () {},
-                              iconSize: 50.0,
-                              icon: Icon(Icons.backspace, color: Colors.grey,),
+                              icon: Icon(Icons.backspace_outlined, color: Colors.grey,),
+                              iconSize: 40.0,
+
                             ),
                           ),
                         ),
@@ -128,6 +129,7 @@ Widget buildButton({int? num}) {
       height: 75.0,
       child: OutlineButton(
         onPressed: () {},
+        shape: CircleBorder(),
         child: Text('${num.toString()}', style: TextStyle(fontSize: 25.0),),
       ),
     ),
