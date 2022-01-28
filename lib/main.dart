@@ -25,13 +25,13 @@ class HomePage extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.only(top: 100.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Container(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Expanded(
+            child: Container(
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -47,9 +47,11 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
+          ),
 
-            Padding(
-              padding: const EdgeInsets.only(bottom: 20.0),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 20.0),
+            child: Expanded(
               child: Container(
                 child: Column(
                   children: [
@@ -115,9 +117,9 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
               ),
-            )
-          ],
-        ),
+            ),
+          )
+        ],
       ),
     );
   }
