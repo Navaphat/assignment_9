@@ -10,7 +10,6 @@ class loginPage extends StatefulWidget {
 }
 
 class _loginPageState extends State<loginPage> {
-  final TextEditingController controller = TextEditingController();
 
   String _inputPIN = '';
   static const _PIN = '123456';
