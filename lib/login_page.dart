@@ -31,81 +31,80 @@ class _loginPageState extends State<loginPage> {
                       Icon(
                         Icons.lock_outline,
                         size: 125.0,
-                        color: Colors.grey,
+                        color: Colors.green,
                       ),
                     ],
                   ),
-                  Text('กรุณาใส่รหัสผ่าน', style: TextStyle(fontSize: 25.0),),
+
+                  Text('LOGIN', style: TextStyle(color: Colors.green, fontSize: 40.0),),
+                  Text('Enter PIN to login', style: TextStyle(fontSize: 18.0, color: Colors.green),),
                 ],
               ),
             ),
           ),
 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              for(var i = 0; i < 6; i++) buildPassCode(i: i),
-            ],
-          ),
-
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text('$_inputPIN', style: TextStyle(fontSize: 25.0),),
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                for(var i = 0; i < 6; i++) buildPassCode(i: i),
+              ],
+            ),
           ),
 
-          Expanded(
-            child: Container(
-              //color: Colors.blue,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      for(var i = 1; i <= 3; i++) buildButton(num: i),
-                    ],
-                  ),
+          Container(
+            //color: Colors.white,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
 
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      for(var i = 4; i <= 6; i++) buildButton(num: i),
-                    ],
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    for(var i = 1; i <= 3; i++) buildButton(num: i),
+                  ],
+                ),
 
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      for(var i = 7; i <= 9; i++) buildButton(num: i),
-                    ],
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    for(var i = 4; i <= 6; i++) buildButton(num: i),
+                  ],
+                ),
 
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(height: 75.0, width: 75.0,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    for(var i = 7; i <= 9; i++) buildButton(num: i),
+                  ],
+                ),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Container(height: 75.0, width: 75.0,),
+                    ),
+                    buildButton(num: 0),
+                    buildButton(num: -1),
+                  ],
+                ),
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8.0, bottom: 16.0),
+                      child: TextButton(
+                        onPressed: () {},
+                        child: Text('ลืมรหัสผ่าน', style: TextStyle(fontSize: 20.0, color: Colors.blue),),
                       ),
-                      buildButton(num: 0),
-                      buildButton(num: -1),
-                    ],
-                  ),
-
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: TextButton(
-                          onPressed: () {},
-                          child: Text('ลืมรหัสผ่าน', style: TextStyle(fontSize: 20.0, color: Colors.blue),),
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
+                    ),
+                  ],
+                )
+              ],
             ),
           )
         ],
@@ -119,13 +118,13 @@ class _loginPageState extends State<loginPage> {
     BoxDecoration? boxDecoration;
 
     if(num == -1) {
-      child = Icon(Icons.backspace_outlined, size: 30.0, color: Colors.grey,);
+      child = Icon(Icons.backspace_outlined, size: 30.0, color: Colors.green,);
     }
     else {
-      child = Text('${num}', style: TextStyle(fontSize: 20.0,),);
+      child = Text('${num}', style: TextStyle(fontSize: 20.0, color: Colors.green),);
       boxDecoration = BoxDecoration(
         shape: BoxShape.circle,
-        border: Border.all(color: Colors.grey, width: 2.0),
+        border: Border.all(color: Colors.green, width: 2.0),
       );
     }
 
@@ -182,20 +181,20 @@ class _loginPageState extends State<loginPage> {
   Widget buildPassCode({int? i}) {
     BoxDecoration? blankPass = BoxDecoration(
       shape: BoxShape.circle,
-      border: Border.all(color: Colors.grey, width: 2.0),
+      border: Border.all(color: Colors.green, width: 2.0),
     );
 
     BoxDecoration? fillPass = BoxDecoration(
       shape: BoxShape.circle,
-      color: Colors.grey,
-      border: Border.all(color: Colors.grey, width: 2.0),
+      color: Colors.green,
+      border: Border.all(color: Colors.green, width: 2.0),
     );
 
     return Padding(
-      padding: const EdgeInsets.all(4.0),
+      padding: const EdgeInsets.only(left: 10.0, right: 10.0,),
       child: Container(
-        width: 18.0,
-        height: 18.0,
+        width: 20.0,
+        height: 20.0,
         decoration: (i! < _inputPIN.length)? fillPass : blankPass,
       ),
     );

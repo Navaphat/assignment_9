@@ -28,7 +28,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: const Text('Mobius'),
+        title: const Text('Mobius', style: TextStyle(color: Colors.black),),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
