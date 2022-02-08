@@ -1,3 +1,4 @@
+import 'package:assignment_final/main_page.dart';
 import 'package:flutter/material.dart';
 
 class loginPage extends StatefulWidget {
@@ -11,7 +12,8 @@ class loginPage extends StatefulWidget {
 class _loginPageState extends State<loginPage> {
   final TextEditingController controller = TextEditingController();
 
-  String _input = '';
+  String _inputPIN = '';
+  static const _PIN = '123456';
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +51,7 @@ class _loginPageState extends State<loginPage> {
 
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text('$_input', style: TextStyle(fontSize: 25.0),),
+            child: Text('$_inputPIN', style: TextStyle(fontSize: 25.0),),
           ),
 
           Expanded(
@@ -133,9 +135,13 @@ class _loginPageState extends State<loginPage> {
       child: InkWell(
         onTap: () {
           setState(() {
-            if(num != -1 && (_input.length != 6))  _input += '$num';
-            else if(num == -1) _input = _input.substring(0, _input.length-1);
+            if (num != -1 && _inputPIN.length != 6) {
+                _inputPIN += '$num';
+            }
+            else if (num == -1)
+                _inputPIN = _inputPIN.substring(0, _inputPIN.length - 1);
           });
+          checkPin();
         },
         borderRadius: BorderRadius.circular(37.5),
         child: Container(
@@ -148,6 +154,31 @@ class _loginPageState extends State<loginPage> {
       ),
     );
   }
+
+  checkPin() {
+    if(_inputPIN.length == 6) {
+      if(_inputPIN == _PIN) {
+        Future.delayed(Duration(milliseconds: 250), () {
+          setState(() {
+            _inputPIN = '';
+          });
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => const HomePage()
+            ),
+          );
+        });
+      }
+      else {
+          Future.delayed(Duration(milliseconds: 250), () {
+            setState(() {
+              _inputPIN = '';
+            });
+          });
+      }
+    }
+}
 
   Widget buildPassCode({int? i}) {
     BoxDecoration? blankPass = BoxDecoration(
@@ -166,7 +197,7 @@ class _loginPageState extends State<loginPage> {
       child: Container(
         width: 18.0,
         height: 18.0,
-        decoration: (i! < _input.length)? fillPass : blankPass,
+        decoration: (i! < _inputPIN.length)? fillPass : blankPass,
       ),
     );
   }
