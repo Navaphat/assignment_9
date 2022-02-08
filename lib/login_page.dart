@@ -158,7 +158,7 @@ class _loginPageState extends State<loginPage> {
   checkPin() {
     if(_inputPIN.length == 6) {
       if(_inputPIN == _PIN) {
-        Future.delayed(Duration(milliseconds: 250), () {
+        Future.delayed(Duration(milliseconds: 100), () {
           setState(() {
             _inputPIN = '';
           });
@@ -171,7 +171,7 @@ class _loginPageState extends State<loginPage> {
         });
       }
       else {
-          Future.delayed(Duration(milliseconds: 250), () {
+          Future.delayed(Duration(milliseconds: 100), () {
             setState(() {
               _inputPIN = '';
             });

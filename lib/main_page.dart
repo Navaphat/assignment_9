@@ -12,7 +12,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'main page',
       theme: ThemeData(
-        primarySwatch: Colors.grey,
+        primarySwatch: Colors.green,
+        scaffoldBackgroundColor: Colors.black,
       ),
       home: HomePage(),
     );
@@ -24,8 +25,32 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text('Main Page'),
+    return Scaffold(
+      backgroundColor: Colors.black,
+      appBar: AppBar(
+        title: const Text('Mobius'),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  child: Text('来て,かわいいラットさん', style: TextStyle(color: Colors.green, fontSize: 35),),
+                ),
+              ],
+            ),
+          ),
+
+          Container(
+            child: Image.asset('assets/images/Mobius.jpg', width: 700,),
+          ),
+
+          Expanded(child: Container()),
+        ],
+      ),
     );
   }
 }
