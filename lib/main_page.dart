@@ -48,7 +48,11 @@ class HomePage extends StatelessWidget {
             child: Image.asset('assets/images/Mobius.jpg', width: 700,),
           ),
 
-          Expanded(child: Container()),
+          Expanded(
+              child: Container(
+                child: Text('メビウス', style: TextStyle(color: Colors.green,fontSize: 30.0),),
+              ),
+          ),
         ],
       ),
     );

@@ -93,7 +93,7 @@ class _loginPageState extends State<loginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(top: 8.0, bottom: 16.0),
+                      padding: const EdgeInsets.only(top: 8.0, bottom: 24.0),
                       child: TextButton(
                         onPressed: () {
 
