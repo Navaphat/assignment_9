@@ -43,14 +43,11 @@ class _loginPageState extends State<loginPage> {
             ),
           ),
 
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                for(var i = 0; i < 6; i++) buildPassCode(i: i),
-              ],
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              for(var i = 0; i < 6; i++) buildPassCode(i: i),
+            ],
           ),
 
           Container(
@@ -85,7 +82,7 @@ class _loginPageState extends State<loginPage> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Container(height: 75.0, width: 75.0,),
+                      child: Container(height: 70.0, width: 70.0,),
                     ),
                     buildButton(num: 0),
                     buildButton(num: -1),
@@ -98,8 +95,10 @@ class _loginPageState extends State<loginPage> {
                     Padding(
                       padding: const EdgeInsets.only(top: 8.0, bottom: 16.0),
                       child: TextButton(
-                        onPressed: () {},
-                        child: Text('ลืมรหัสผ่าน', style: TextStyle(fontSize: 20.0, color: Colors.blue),),
+                        onPressed: () {
+
+                        },
+                        child: Text('Forget PIN', style: TextStyle(fontSize: 20.0, color: Colors.yellow),),
                       ),
                     ),
                   ],
@@ -141,10 +140,10 @@ class _loginPageState extends State<loginPage> {
           });
           checkPin();
         },
-        borderRadius: BorderRadius.circular(37.5),
+        borderRadius: BorderRadius.circular(30.0),
         child: Container(
-          width: 75.0,
-          height: 75.0,
+          width: 70.0,
+          height: 70.0,
           decoration: boxDecoration,
           alignment: Alignment.center,
           child: child,
@@ -173,6 +172,23 @@ class _loginPageState extends State<loginPage> {
             setState(() {
               _inputPIN = '';
             });
+
+            showDialog(context: context, barrierDismissible: false, builder: (BuildContext context, ) {
+              return AlertDialog(
+                backgroundColor: Colors.yellow,
+                title: Text('Incorrect PIN'),
+                content: Text('Please try again'),
+
+                actions: [
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Text('Ok', style: TextStyle(color: Colors.black),)
+                  ),
+                ],
+              );
+            });
           });
       }
     }
@@ -191,7 +207,7 @@ class _loginPageState extends State<loginPage> {
     );
 
     return Padding(
-      padding: const EdgeInsets.only(left: 10.0, right: 10.0,),
+      padding: const EdgeInsets.only(bottom: 80.0, left: 10.0, right: 10.0),
       child: Container(
         width: 20.0,
         height: 20.0,

@@ -38,7 +38,7 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  child: Text('来て,かわいいラットさん', style: TextStyle(color: Colors.green, fontSize: 35),),
+                  child: Text('来て,かわいいラットさん', style: TextStyle(color: Colors.yellow, fontSize: 35),),
                 ),
               ],
             ),
