@@ -140,7 +140,7 @@ class _loginPageState extends State<loginPage> {
           });
           checkPin();
         },
-        borderRadius: BorderRadius.circular(30.0),
+        borderRadius: BorderRadius.circular(35.0),
         child: Container(
           width: 70.0,
           height: 70.0,
@@ -197,7 +197,8 @@ class _loginPageState extends State<loginPage> {
   Widget buildPassCode({int? i}) {
     BoxDecoration? blankPass = BoxDecoration(
       shape: BoxShape.circle,
-      border: Border.all(color: Colors.green, width: 2.0),
+      color: Colors.green.withOpacity(0.25),
+      border: Border.all(color: Colors.green, width: 0.5),
     );
 
     BoxDecoration? fillPass = BoxDecoration(
