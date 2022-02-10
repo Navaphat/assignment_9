@@ -13,6 +13,7 @@ class _loginPageState extends State<loginPage> {
 
   String _inputPIN = '';
   static const _PIN = '123456';
+  double buttonSize = 75.0;
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,7 +83,11 @@ class _loginPageState extends State<loginPage> {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Container(height: 70.0, width: 70.0,),
+                      child: Container(
+                        height: buttonSize,
+                        width: buttonSize,
+                        child: Image.asset('assets/images/Mobius_Symbols.png', color: Colors.green,),
+                      ),
                     ),
                     buildButton(num: 0),
                     buildButton(num: -1),
@@ -140,10 +145,10 @@ class _loginPageState extends State<loginPage> {
           });
           checkPin();
         },
-        borderRadius: BorderRadius.circular(35.0),
+        borderRadius: BorderRadius.circular(buttonSize/2),
         child: Container(
-          width: 70.0,
-          height: 70.0,
+          width: buttonSize,
+          height: buttonSize,
           decoration: boxDecoration,
           alignment: Alignment.center,
           child: child,
@@ -176,7 +181,12 @@ class _loginPageState extends State<loginPage> {
             showDialog(context: context, barrierDismissible: false, builder: (BuildContext context, ) {
               return AlertDialog(
                 backgroundColor: Colors.yellow,
-                title: Text('Incorrect PIN'),
+                title: Row(
+                  children: [
+                    Image.asset('assets/images/Mobius_Symbols.png', width: 50.0, color: Colors.green,),
+                    Text('Incorrect PIN'),
+                  ],
+                ),
                 content: Text('Please try again'),
 
                 actions: [
@@ -195,13 +205,13 @@ class _loginPageState extends State<loginPage> {
 }
 
   Widget buildPassCode({int? i}) {
-    BoxDecoration? blankPass = BoxDecoration(
+    BoxDecoration? blankPIN = BoxDecoration(
       shape: BoxShape.circle,
       color: Colors.green.withOpacity(0.25),
       border: Border.all(color: Colors.green, width: 0.5),
     );
 
-    BoxDecoration? fillPass = BoxDecoration(
+    BoxDecoration? fillPIN = BoxDecoration(
       shape: BoxShape.circle,
       color: Colors.green,
       border: Border.all(color: Colors.green, width: 2.0),
@@ -212,7 +222,7 @@ class _loginPageState extends State<loginPage> {
       child: Container(
         width: 20.0,
         height: 20.0,
-        decoration: (i! < _inputPIN.length)? fillPass : blankPass,
+        decoration: (i! < _inputPIN.length)? fillPIN : blankPIN,
       ),
     );
   }

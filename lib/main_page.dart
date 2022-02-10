@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
           ),
 
           Container(
-            child: Image.asset('assets/images/Mobius.jpg', width: 700,),
+            child: Image.asset('assets/images/Mobius.jpg', width: 700.0,),
           ),
 
           Expanded(
